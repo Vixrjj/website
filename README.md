@@ -61,6 +61,15 @@ h2{font-size:clamp(2rem,5vw,3.3rem);letter-spacing:-.03em;line-height:1.08;font-
 .cta{text-align:center}
 .pill{display:inline-block;background:var(--link);color:#fff;padding:.85rem 1.7rem;border-radius:980px;font-size:1.15rem;margin-top:1rem}
 .pill:hover{text-decoration:none;opacity:.9}
+.form,.out{max-width:560px;margin:0 auto;text-align:left}
+.form label{display:block;font-size:.95rem;font-weight:600;margin:0 0 1rem}
+.form input,.form select,.form textarea,.out textarea{display:block;width:100%;margin-top:.35rem;padding:.8rem 1rem;font:inherit;font-size:1rem;font-weight:400;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:14px}
+.form textarea{resize:vertical}
+button.pill{border:0;cursor:pointer;font:inherit;font-size:1.15rem}
+.form .pill,.out .pill{display:block;margin:1rem auto 0}
+.hint{color:var(--muted);font-size:.9rem;margin:.75rem 0 0;text-align:center}
+.out{margin-top:2rem}
+.out p{color:var(--muted)}
 .legal{padding:3rem 0 1rem;font-size:.95rem;color:var(--muted);border-top:1px solid var(--line)}
 .legal h2{font-size:1.5rem;text-align:left;letter-spacing:-.02em;color:var(--ink)}
 .legal h3{font-size:1.05rem;margin:1.25rem 0 .25rem;color:var(--ink)}
@@ -114,17 +123,17 @@ footer a{margin-left:1rem}
       <div class="tiles">
         <article class="tile" style="background:linear-gradient(var(--card) 55%,var(--t1))">
           <h3>Deko und Vasen</h3><p>Mehrfarbig, mit Verlauf oder einfarbig.</p>
-          <a class="l" href="mailto:leonlaserich06@gmail.com?subject=Anfrage%20Deko%20und%20Vasen">Anfragen</a>
+          <a class="l" href="#anfrage" data-kat="Deko und Vasen">Anfragen</a>
           <div class="art"><svg viewBox="0 0 120 160" aria-hidden="true"><use href="#vase" fill="url(#g1)"/><use href="#vase" fill="url(#layers)"/></svg></div>
         </article>
         <article class="tile" style="background:linear-gradient(var(--card) 55%,var(--t2))">
           <h3>Halter und Organizer</h3><p>Für Schreibtisch, Werkstatt und Küche.</p>
-          <a class="l" href="mailto:leonlaserich06@gmail.com?subject=Anfrage%20Halter%20und%20Organizer">Anfragen</a>
+          <a class="l" href="#anfrage" data-kat="Halter und Organizer">Anfragen</a>
           <div class="art"><svg viewBox="0 0 120 160" aria-hidden="true"><use href="#cup" fill="url(#g2)"/><use href="#cup" fill="url(#layers)"/></svg></div>
         </article>
         <article class="tile" style="background:linear-gradient(var(--card) 55%,var(--t3))">
           <h3>Ersatzteile</h3><p>Klammern, Knöpfe, Abdeckungen und mehr, nach deinem Maß.</p>
-          <a class="l" href="mailto:leonlaserich06@gmail.com?subject=Anfrage%20Ersatzteil">Anfragen</a>
+          <a class="l" href="#anfrage" data-kat="Ersatzteil">Anfragen</a>
           <div class="art"><svg viewBox="0 0 120 160" aria-hidden="true">
             <g id="gear"><circle cx="60" cy="90" r="46" fill="none" stroke="url(#g3)" stroke-width="14" stroke-dasharray="11 9"/><circle cx="60" cy="90" r="38" fill="url(#g3)"/></g>
             <use href="#gear" style="fill:url(#layers)"/><circle cx="60" cy="90" r="14" style="fill:var(--card)"/>
@@ -132,7 +141,7 @@ footer a{margin-left:1rem}
         </article>
         <article class="tile" style="background:linear-gradient(var(--card) 55%,var(--t4))">
           <h3>Geschenke</h3><p>Namensschilder, Türschilder und persönliche Unikate.</p>
-          <a class="l" href="mailto:leonlaserich06@gmail.com?subject=Anfrage%20Geschenk">Anfragen</a>
+          <a class="l" href="#anfrage" data-kat="Geschenk">Anfragen</a>
           <div class="art"><svg viewBox="0 0 120 160" aria-hidden="true">
             <rect x="6" y="60" width="108" height="70" rx="16" fill="url(#g4)"/><rect x="6" y="60" width="108" height="70" rx="16" fill="url(#layers)"/>
             <text x="60" y="104" text-anchor="middle" font-size="22" font-weight="700" fill="#fff" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Dein Name</text>
@@ -178,7 +187,16 @@ footer a{margin-left:1rem}
     <div class="wrap">
       <h2>Was soll ich für dich drucken?</h2>
       <p class="sub" style="margin-bottom:1rem">Schreib mir kurz deine Idee. Ich melde mich in der Regel innerhalb eines Tages.</p>
-      <a class="pill" href="mailto:leonlaserich06@gmail.com?subject=Anfrage%203d%20Prints%20fy">Anfrage per E-Mail</a>
+      <form id="anfrage-form" class="form">
+<label>Dein Name<input name="name" required autocomplete="name"></label>
+<label>Deine E-Mail<input name="mail" type="email" required autocomplete="email"></label>
+<label>Was soll gedruckt werden?<select name="kat" id="kat"><option>Deko und Vasen</option><option>Halter und Organizer</option><option>Ersatzteil</option><option>Geschenk</option><option>Etwas anderes</option></select></label>
+<label>Menge<input name="menge" inputmode="numeric" placeholder="z. B. 1"></label>
+<label>Beschreibung<textarea name="text" rows="5" required placeholder="Maße, Farbe, Wunschtext, Verwendung …"></textarea></label>
+<button class="pill" type="submit">Anfrage vorbereiten</button>
+<p class="hint">Dein E-Mail-Programm öffnet sich mit fertigem Text. Du musst nur noch auf Senden klicken.</p>
+</form>
+<div id="out" class="out" hidden><p>Falls sich nichts geöffnet hat, kopiere den Text und sende ihn an <b>leonlaserich06@gmail.com</b>:</p><textarea id="txt" rows="9" readonly></textarea><button id="copy" class="pill" type="button">Text kopieren</button></div>
     </div>
   </section>
 </main>
@@ -199,7 +217,7 @@ footer a{margin-left:1rem}
     <h3>Hosting</h3>
     <p>Diese Seite wird bei GitHub Pages gehostet (GitHub Inc., USA). Beim Aufruf verarbeitet der Anbieter technisch notwendige Daten wie deine IP-Adresse. Grundlage ist Art. 6 Abs. 1 lit. f DSGVO (sicherer und effizienter Betrieb der Seite).</p>
     <h3>Kontaktaufnahme</h3>
-    <p>Wenn du mir per E-Mail schreibst, verarbeite ich deine Angaben nur, um deine Anfrage zu beantworten (Art. 6 Abs. 1 lit. b oder f DSGVO). Ich lösche sie, sobald sie nicht mehr nötig sind und keine Aufbewahrungspflichten bestehen.</p>
+    <p>Das Anfrageformular sendet selbst keine Daten an einen Server: Es bereitet nur eine E-Mail vor, die du in deinem E-Mail-Programm abschickst. Wenn du mir per E-Mail schreibst, verarbeite ich deine Angaben nur, um deine Anfrage zu beantworten (Art. 6 Abs. 1 lit. b oder f DSGVO). Ich lösche sie, sobald sie nicht mehr nötig sind und keine Aufbewahrungspflichten bestehen.</p>
     <h3>Cookies, Tracking und Schriften</h3>
     <p>Diese Seite setzt keine Cookies, nutzt keine Analyse- oder Tracking-Dienste und lädt keine externen Schriften.</p>
     <h3>Deine Rechte</h3>
@@ -209,5 +227,22 @@ footer a{margin-left:1rem}
   <footer>© 2026 3d Prints fy<a href="#impressum">Impressum</a><a href="#datenschutz">Datenschutz</a></footer>
 </div>
 
+<script>
+(function(){
+ var sel=document.getElementById('kat');
+ document.querySelectorAll('[data-kat]').forEach(function(a){a.addEventListener('click',function(){sel.value=a.getAttribute('data-kat');});});
+ var f=document.getElementById('anfrage-form'),out=document.getElementById('out'),txt=document.getElementById('txt'),cp=document.getElementById('copy'),NL=String.fromCharCode(10);
+ f.addEventListener('submit',function(e){
+  e.preventDefault();
+  var d=new FormData(f);
+  var subject='Anfrage: '+d.get('kat');
+  var body='Hallo,'+NL+NL+'ich habe eine Anfrage.'+NL+NL+'Name: '+d.get('name')+NL+'E-Mail: '+d.get('mail')+NL+'Was: '+d.get('kat')+NL+'Menge: '+(d.get('menge')||'-')+NL+NL+'Beschreibung:'+NL+d.get('text')+NL+NL+'Viele Grüße'+NL+d.get('name');
+  txt.value='An: leonlaserich06@gmail.com'+NL+'Betreff: '+subject+NL+NL+body;
+  out.hidden=false;
+  window.location.href='mailto:leonlaserich06@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+ });
+ cp.addEventListener('click',function(){txt.select();try{navigator.clipboard.writeText(txt.value);}catch(err){document.execCommand('copy');}cp.textContent='Kopiert ✓';});
+})();
+</script>
 </body>
 </html>
