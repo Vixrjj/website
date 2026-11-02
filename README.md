@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>3d Prints fy – 3D-Druck nach deinem Wunsch</title>
+<title>your 3d Prints  – 3D-Druck nach deinem Wunsch</title>
 <meta name="description" content="3D-Druck nach Maß: Deko, Halter, Ersatzteile und Geschenke. Schick mir deine Idee.">
 <style>
 :root{
